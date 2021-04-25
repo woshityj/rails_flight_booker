@@ -1,0 +1,59 @@
+<section class="section">
+    <div class="container">
+        <h3 class="title is-3">Flight Details</h3>
+        <% @flight.each do |flight| %>
+        <div class="card has-text-centered">
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="level">
+                        <div class="level-item has-text">
+                            <div class="field">
+                                <label class="label">From</label>
+                                <%= flight.from.name %>
+                            </div>
+                        </div>
+                        <div class="level-item has-text">
+                            <div class="field">
+                                <label class="label">To</label>
+                                <%= flight.to.name %>
+                            </div>
+                        </div>
+                        <div class="level-item has-text">
+                            <div class="field">
+                                <label class="label">Date</label>
+                                <%= flight.date %>
+                            </div>
+                        </div>
+                        <div class="level-item has-text">
+                            <div class="field">
+                                <label class="label">Time</label>
+                                <%= flight.time.strftime("%H:%M:%S") %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns is-mobile">
+                        <div class="column">
+                            <div class="level">
+                                <div class="level-item has-text">
+                                    <div class="field">
+                                    <label class="label">Passengers</label>
+                                    <%= @passengers %>
+                                    </div>
+                                </div>
+                                <div class="level-item has-text">
+                                    <div class="field">
+                                    <label class="label">Flight ID</label>
+                                    <%= flight.id %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</section>
+
+<%= render "form" %>

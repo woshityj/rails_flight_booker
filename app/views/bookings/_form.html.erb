@@ -1,0 +1,40 @@
+<section class="section">
+    <div class="container">
+        <h1 class="title">Passenger Details</h1>
+        <div class="columns is-centered">
+            <%= form_for @booking do |form| %>
+                <% count = 0 %>
+                <% @passengers = @passengers.to_i %>
+                <% while count != @passengers %>
+                    <%= form.fields_for :passengers do |passenger_details_form| %>
+                    <%= form.hidden_field :flight_id, :value => @flight_id %>
+                    <div class="column is-half">
+                        <div class="level">
+                            <div class="level-item has-text">
+                                <div class="field">
+                                    <label class="label">Name</label>
+                                    <div class="control">
+                                        <%= passenger_details_form.text_field :name, class: "input", placeholder: "Passenger Name" %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-item has-text" style="padding-left: 50px;">
+                                <div class="field">
+                                    <label class="label">Email</label>
+                                    <div class="control">
+                                        <%= passenger_details_form.text_field :email, class: "input", placeholder: "Passenger Email" %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                    <% count += 1%>
+                <% end %>
+                <div class="column is-half">
+                <%= form.submit "Submit Booking", class:"button is-link" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</section>

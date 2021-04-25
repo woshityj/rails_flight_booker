@@ -1,0 +1,51 @@
+<div class="columns is-centered">
+    <div class="column is-half">
+        <div class="container has-text-centered">
+            <% if !@flights_search.empty? %>
+                <%= form_with url: new_booking_path, method: :get do |form| %>
+                    <% @flights_search.each do |flight| %>
+                        <div class="card" style="margin-top: 50px;">
+                            <div class="card-content">
+                            <%= form.radio_button :id, flight.id %>
+                            <%= form.hidden_field :passengers, :value => @passengers %>
+                                <div class="level">
+                                    <div class="level-item has-text">
+                                        <div class="field">
+                                        <label class="label">From</label>
+                                        <%= flight.from.name %>
+                                        </div>
+                                    </div>
+                                    <div class="level-item has-text">
+                                        <div class="field">
+                                        <label class="label">To</label>
+                                        <%= flight.to.name %>
+                                        </div>
+                                    </div>
+                                    <div class="level-item has-text">
+                                        <div class="field">
+                                        <label class="label">Date</label>
+                                        <%= flight.date %>
+                                        </div>
+                                    </div>
+                                    <div class="level-item has-text">
+                                        <div class="field">
+                                        <label class="label">Time</label>
+                                        <%= flight.time.strftime("%H:%M:%S") %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                    <%= form.submit "Book Flight", class:"button is-link", style:"margin-top: 50px;" %>
+                <% end %>
+                <% else %>
+                    <div class="container">
+                        <div class="content has-text-centered">
+                            <h2 class="title is-2">No Flights Available</h2>
+                        </div>
+                    </div>
+            <% end %>
+        </div>
+    </div>
+</div>

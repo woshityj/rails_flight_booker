@@ -1,0 +1,82 @@
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-half has-text-centered">
+                <h1 class="title">Booking Details</h1>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="level">
+                            <div class="level-item has-text">
+                                <div class="field">
+                                    <label class="label">From</label>
+                                    <%= @booking.flight.from.name %>
+                                </div>
+                            </div>
+                            <div class="level-item has-text">
+                                <div class="field">
+                                    <label class="label">To</label>
+                                    <%= @booking.flight.to.name %>
+                                </div>
+                            </div>
+                            <div class="level-item has-text">
+                                <div class="field">
+                                    <label class="label">Date</label>
+                                    <%= @booking.flight.date %>
+                                </div>
+                            </div>
+                            <div class="level-item has-text">
+                                <div class="field">
+                                    <label class="label">Time</label>
+                                    <%= @booking.flight.time.strftime("%H:%M:%S") %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="columns is-mobile is-centered">
+                            <div class="column has-text-centered">
+                                <div class="level">
+                                    <div class="level-item has-text">
+                                        <div class="field">
+                                            <label class="label">No. Of Passengers</label>
+                                            <%= @booking.passengers.count %>
+                                        </div>
+                                    </div>
+                                    <div class="level-item has-text">
+                                        <div class="field">
+                                            <label class="label">Flight ID</label>
+                                            <%= @booking.flight.id %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="columns is-mobile is-centered">
+                            <div class="column has-text-centered">
+                                <h3 class="title is-3">Passenger</h3>
+                            </div>
+                        </div>
+                        <% @booking.passengers.each do |passenger| %>
+                        <div class="columns is-mobile">
+                            <div class="column has-text-centered">
+                                <div class="level">
+                                    <div class="level-item has-text">
+                                        <div class="field">
+                                            <label class="label">Name</label>
+                                            <%= passenger.name %>
+                                        </div>
+                                    </div>
+                                    <div class="level-item has-text">
+                                        <div class="field">
+                                            <label class="label">Email</label>
+                                            <%= passenger.email %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

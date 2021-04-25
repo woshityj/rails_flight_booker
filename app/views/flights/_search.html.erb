@@ -1,0 +1,50 @@
+<div class="columns is-centered" style="margin-top: 50px;">
+    <div class="column is-half">
+        <div class="container has-text-centered">
+            <%= form_with model: @flight, url: flights_path, method: :get do |form| %>
+                <div class="level">
+                    <div class="level-item has-text-centered">
+                        <div class="field">
+                            <%= form.label :from, class: "label" %>
+                            <div class="control">
+                                <div class="select">
+                                <%= select_tag(:from_id, options_for_select(@airport_options), :include_blank => "Select a Country") %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-item has-text-centered">
+                        <div class="field">
+                            <%= form.label :to, class: "label" %>
+                            <div class="control">
+                                <div class="select">
+                                <%= select_tag(:to_id, options_for_select(@airport_options), :include_blank => "Select a Country") %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-item has-text-centered">
+                        <div class="field">
+                            <%= form.label :passengers, class: "label" %>
+                            <div class="control">
+                                <div class="select">
+                                <%= form.select :passengers, [1, 2, 3, 4], :include_blank => "Select Number of Passengers" %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-item has-text-centered">
+                        <div class="field">
+                            <%= form.label :date, class: "label" %>
+                            <div class="control">
+                                <%= form.date_field :date, class: "input" %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%= form.submit "Search", class: "button is-link" %>
+            <% end %>
+        </div>
+    </div>
+</div>
+
