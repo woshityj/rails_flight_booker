@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# About The Project
 
-Things you may want to cover:
+This project is completed as part of [TheOdinProject Ruby on Rails Learning Track](https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails/lessons/associations) to dive into building Advanced Forms using Ruby on Rails. This project involves building a typical checkout process for booking a one-way flight.
 
-* Ruby version
+# Built With
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This projecct was built purely using the following languages:
+- HTML
+- CSS
+- Ruby
