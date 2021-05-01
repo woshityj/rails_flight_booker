@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    </head>
+    <body>
+        <div class="content has-text-centered">
+        <h1>Booking Details</h1>
+        <p>From : <%= @booking.flight.from.name %></p>
+        <p>To   : <%= @booking.flight.to.name %></p>
+        <p>Date : <%= @booking.flight.date %></p>
+        <p>Time : <%= @booking.flight.time.strftime("%H:%M:%S") %></p>
+        <h1>Passenger Details</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% count = 0 %>
+                <% @booking.passengers.each do |passenger| %>
+                <% count += 1%>
+                <tr>
+                    <td><%= count %></td>
+                    <td><%= passenger.name %></td>
+                    <td><%= passenger.email %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+        </div>
+    </body>
+</html>
+

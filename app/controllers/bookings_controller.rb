@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
+      PassengerMailer.with(id: @booking.id).thank_you_email.deliver_later
       redirect_to booking_path(@booking.id)
     else
       render :index
